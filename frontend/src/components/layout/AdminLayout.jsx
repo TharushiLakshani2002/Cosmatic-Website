@@ -3,7 +3,7 @@ import {Outlet, NavLink, useLocation} from 'react-router-dom';
 import {useAuth} from '../../contexts/AuthContext';
 import {
     LayoutDashboard,
-    Coffee,
+    Shirt,
     Users,
     ShoppingCart,
     TrendingUp,
@@ -18,7 +18,7 @@ const AdminLayout = () => {
 
     const navItems = [
         {path: '/admin/dashboard', name: 'Overview', icon: LayoutDashboard},
-        {path: '/admin/menu', name: 'Menu Management', icon: Coffee},
+        {path: '/admin/shopping', name: 'Shopping Management', icon: Shirt},
         {path: '/admin/orders', name: 'Orders', icon: ShoppingCart},
         {path: '/admin/staff', name: 'Staff Management', icon: Users},
         {path: '/admin/analytics', name: 'Analytics', icon: TrendingUp},

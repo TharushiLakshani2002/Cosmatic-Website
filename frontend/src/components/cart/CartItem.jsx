@@ -16,10 +16,10 @@ const CartItem = ({item, onUpdateQuantity, onRemove, onEdit}) => {
         <div className="p-6 hover:bg-gray-50 transition-colors">
             <div className="flex gap-4">
                 {/* Item Image */}
-                <Link to={`/menu/${item.menuItem._id}`} className="flex-shrink-0">
+                <Link to={`/shopping/${item.shoppingItem._id}`} className="flex-shrink-0">
                     <img
-                        src={item.menuItem.image}
-                        alt={item.menuItem.name}
+                        src={item.shoppingItem.image}
+                        alt={item.shoppingItem.name}
                         className="w-24 h-24 object-cover rounded-lg hover:opacity-90 transition-opacity"
                     />
                 </Link>
@@ -29,13 +29,13 @@ const CartItem = ({item, onUpdateQuantity, onRemove, onEdit}) => {
                     <div className="flex justify-between items-start">
                         <div>
                             <Link
-                                to={`/menu/${item.menuItem._id}`}
+                                to={`/menu/${item.shoppingItem._id}`}
                                 className="font-semibold text-lg hover:text-[#0fb8a1] transition-colors"
                             >
-                                {item.menuItem.name}
+                                {item.shoppingItem.name}
                             </Link>
                             <p className="text-gray-600 text-sm mt-1">
-                                {item.menuItem.category} • ${item.price.toFixed(2)} each
+                                {item.shoppingItem.category} • ${item.price.toFixed(2)} each
                             </p>
 
                             {/* Customizations */}
@@ -90,7 +90,7 @@ const CartItem = ({item, onUpdateQuantity, onRemove, onEdit}) => {
                             </button>
 
                             {/* Edit Customizations Button */}
-                            {item.menuItem.customizations && item.menuItem.customizations.length > 0 && onEdit && (
+                            {item.shoppingItem.customizations && item.shoppingItem.customizations.length > 0 && onEdit && (
                                 <button
                                     onClick={() => onEdit(item)}
                                     className="ml-3 text-sm text-[#0fb8a1] hover:text-brown-700 flex items-center gap-1"

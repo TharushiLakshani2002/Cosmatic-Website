@@ -35,7 +35,7 @@ const Header = () => {
 
     const publicLinks = [
         {name: 'Home', path: '/'},
-        {name: 'Products', path: '/menu'},
+        {name: 'Products', path: '/shopping'},
         {name: 'About', path: '/about'},
         {name: 'Locations', path: '/locations'},
         {name: 'Contact', path: '/contact'}

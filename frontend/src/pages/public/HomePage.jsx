@@ -77,7 +77,7 @@ const HomePage = () => {
     {
         name: 'Matte Liquid Lipstick',
         price: '$15.50',
-        image: 'https://tse4.mm.bing.net/th/id/OIF.hP2YYCwH9RzRN0jFx8AH8Q?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
+        image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/6022ab151107941.63061d7c10baf.png',
         description: 'Long-lasting color with a soft matte finish.'
     },
     {
@@ -161,7 +161,7 @@ const HomePage = () => {
             {/* Features Section */}
             <section className="py-16 bg-gray-50">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose BrewHub?</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose FashionHunt?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {features.map((feature, index) => (
                             <div key={index} className="text-center">
@@ -210,7 +210,7 @@ const HomePage = () => {
                             to="/menu"
                             className="inline-block px-8 py-3 bg-[#0fb8a1] text-white rounded-md hover:bg-green-700 transition-colors"
                         >
-                            View Full Menu
+                            View Full items
                         </Link>
                     </div>
                 </div>

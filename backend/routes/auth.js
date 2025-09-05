@@ -32,7 +32,7 @@ router.get('/logout', logout);
 
 // Google OAuth routes
 router.get('/google',
-    passport.authenticate('google', { scope: ['profile', 'email'] })
+    passport.authenticate('google', { scope: ['profile', 'email' , 'openid'] })
 );
 
 router.get('/google/callback',
@@ -47,6 +47,16 @@ router.get('/facebook',
 
 router.get('/facebook/callback',
     passport.authenticate('facebook', { failureRedirect: '/login' }),
+    oauthSuccess
+);
+
+// Auth0 OAuth routes (replacing Facebook)
+router.get('/auth0',
+    passport.authenticate('auth0', { scope: 'openid email profile' })
+);
+
+router.get('/auth0/callback',
+    passport.authenticate('auth0', { failureRedirect: '/login' }),
     oauthSuccess
 );
 

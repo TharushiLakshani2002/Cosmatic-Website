@@ -4,6 +4,7 @@ import {
     ShoppingCart,
     Users,
     TrendingUp,
+    Package
   
 } from 'lucide-react';
 
@@ -150,7 +151,7 @@ const AdminOverview = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <button
                         className="p-4 border border-gray-200 rounded-lg hover:border-[#0fb8a1] hover:bg-green-50 transition-colors">
-                        <Coffee className="w-8 h-8 text-[#0fb8a1] mx-auto mb-2"/>
+                        <Package className="w-8 h-8 text-[#0fb8a1] mx-auto mb-2"/>
                         <span className="text-sm font-medium">Add Menu Item</span>
                     </button>
                     <button

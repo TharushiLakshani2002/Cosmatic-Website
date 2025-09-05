@@ -30,7 +30,8 @@ import OrderDetails from './pages/customer/OrderDetails';
 
 // Admin Pages
 import AdminLayout from './components/layout/AdminLayout';
-import AdminOverview from './pages/admin/AdminOverview';
+import AdminOverview from "./pages/admin/AdminOverview.jsx";
+
 import ShoppingManagement from './pages/admin/ShoppingManagement';
 import {
     Analytics,

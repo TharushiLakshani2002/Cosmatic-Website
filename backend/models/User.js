@@ -1,4 +1,4 @@
-//back-end/models/users.js
+//back-end/models/User.js
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
@@ -18,14 +18,14 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: function() {
-            return !this.googleId && !this.facebookId;
+            return !this.googleId && !this.auth0Id;
         }
     },
     googleId: {
         type: String,
         sparse: true
     },
-    facebookId: {
+    auth0Id: {
         type: String,
         sparse: true
     },

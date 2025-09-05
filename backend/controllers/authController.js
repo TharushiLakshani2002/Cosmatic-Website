@@ -136,15 +136,22 @@ exports.getMe = async (req, res) => {
 exports.oauthSuccess = async (req, res) => {
     try {
         if (!req.user) {
-            return res.redirect(`${process.env.CLIENT_URL}/login?error=auth_failed`);
+            // Redirect to frontend with error
+            const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+            return res.redirect(`${clientUrl}/login?error=auth_failed`);
         }
 
         const token = generateToken(req.user._id);
 
+        // Get the correct frontend URL
+        const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+
         // Redirect to frontend with token
-        res.redirect(`${process.env.CLIENT_URL}/auth/success?token=${token}`);
+        res.redirect(`${clientUrl}/auth/success?token=${token}`);
     } catch (error) {
-        res.redirect(`${process.env.CLIENT_URL}/login?error=server_error`);
+        console.error('OAuth success error:', error);
+        const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+        res.redirect(`${clientUrl}/login?error=server_error`);
     }
 };
 
@@ -152,7 +159,11 @@ exports.oauthSuccess = async (req, res) => {
 // @route   GET /api/auth/logout
 // @access  Private
 exports.logout = (req, res) => {
-    req.logout();
+    req.logout((err) => {
+        if (err) {
+            console.error('Logout error:', err);
+        }
+    });
     res.json({
         success: true,
         message: 'Logged out successfully'

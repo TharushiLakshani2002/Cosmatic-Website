@@ -72,7 +72,7 @@ Database credentials
 Authentication keys
 
 
- Contact
+ # Contact
 
 For questions, feedback, or contributions, feel free to reach out:
 https://github.com/TharushiLakshani2002

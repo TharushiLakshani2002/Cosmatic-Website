@@ -51,7 +51,7 @@ export const CartProvider = ({children}) => {
     const addToCart = (shoppingItem, quantity = 1, customizations = []) => {
         // Check if item with same customizations already exists
         const existingItemIndex = items.findIndex(item => {
-            if (item.menuItem._id !== menuItem._id) return false;
+            if (item.shoppingItem._id !== shoppingItem._id) return false;
 
             // Check if customizations match
             if (item.customizations.length !== customizations.length) return false;
@@ -68,18 +68,18 @@ export const CartProvider = ({children}) => {
             const updatedItems = [...items];
             updatedItems[existingItemIndex].quantity += quantity;
             setItems(updatedItems);
-            toast.success(`Updated ${menuItem.name} quantity in cart`);
+            toast.success(`Updated ${shoppingItem.name} quantity in cart`);
         } else {
             // Add new item
             const cartItem = {
-                id: `${menuItem._id}-${Date.now()}`,
-                menuItem,
+                id: `${shoppingItem._id}-${Date.now()}`,
+                shoppingItem,
                 quantity,
                 customizations,
-                price: calculateItemPrice(menuItem, customizations)
+                price: calculateItemPrice(shoppingItem, customizations)
             };
             setItems(prev => [...prev, cartItem]);
-            toast.success(`${menuItem.name} added to cart!`);
+            toast.success(`${shoppingItem.name} added to cart!`);
         }
     };
 
@@ -104,7 +104,7 @@ export const CartProvider = ({children}) => {
         const item = items.find(i => i.id === itemId);
         if (item) {
             setItems(prev => prev.filter(item => item.id !== itemId));
-            toast.success(`${item.menuItem.name} removed from cart`);
+            toast.success(`${item.shoppingItem.name} removed from cart`);
         }
     };
 
@@ -117,8 +117,8 @@ export const CartProvider = ({children}) => {
     };
 
     // Calculate item price with customizations
-    const calculateItemPrice = (menuItem, customizations) => {
-        let price = menuItem.price;
+    const calculateItemPrice = (shoppingItem, customizations) => {
+        let price = shoppingItem.price;
 
         customizations.forEach(custom => {
             if (custom.option && custom.option.priceModifier) {
@@ -147,14 +147,14 @@ export const CartProvider = ({children}) => {
     };
 
     // Check if item is in cart
-    const isInCart = (menuItemId) => {
-        return items.some(item => item.menuItem._id === menuItemId);
+    const isInCart = (shoppingItemId) => {
+        return items.some(item => item.shoppingItem._id === shoppingItemId);
     };
 
     // Get item quantity in cart
-    const getItemQuantity = (menuItemId) => {
+    const getItemQuantity = (shoppingItemId) => {
         return items
-            .filter(item => item.menuItem._id === menuItemId)
+            .filter(item => item.shoppingItem._id === shoppingItemId)
             .reduce((sum, item) => sum + item.quantity, 0);
     };
 

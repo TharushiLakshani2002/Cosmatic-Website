@@ -12,7 +12,7 @@ import {
     Search
 } from 'lucide-react';
 
-const MenuManagement = () => {
+const ShoppingManagement = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
@@ -121,8 +121,8 @@ const MenuManagement = () => {
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                         <h2 className="text-xl font-semibold">Product Catalog</h2>
                         <Link
-                            to="/admin/menu/new"
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-brown-600 text-white rounded-md hover:bg-brown-700"
+                            to="/admin/shopping/new"
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-[#0fb8a1] text-white rounded-md hover:bg-greeh-700"
                         >
                             <Plus className="w-4 h-4"/> Add New Product
                         </Link>
@@ -203,7 +203,7 @@ const MenuManagement = () => {
                                             <button onClick={() => handleToggleAvailability(item._id, item.isAvailable)} className="text-gray-600 hover:text-gray-900">
                                                 {item.isAvailable ? <ToggleRight className="w-5 h-5 text-green-600"/> : <ToggleLeft className="w-5 h-5 text-gray-400"/>}
                                             </button>
-                                            <Link to={`/admin/menu/edit/${item._id}`} className="text-brown-600 hover:text-brown-900">
+                                            <Link to={`/admin/shopping/edit/${item._id}`} className="text-brown-600 hover:text-brown-900">
                                                 <Edit2 className="w-4 h-4"/>
                                             </Link>
                                             <button onClick={() => setDeleteConfirm(item._id)} className="text-red-600 hover:text-red-900">
@@ -236,4 +236,4 @@ const MenuManagement = () => {
     );
 };
 
-export default MenuManagement;
+export default ShoppingManagement;

@@ -20,7 +20,9 @@
     "express-session": "^1.18.1",
     "express-validation": "^4.1.1",
     "express-validator": "^7.2.1",
+    "fs": "^0.0.1-security",
     "helmet": "^8.1.0",
+    "https": "^1.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.15.1",
     "morgan": "^1.10.0",
@@ -32,6 +34,7 @@
     "passport-facebook": "^3.0.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-jwt": "^4.0.1",
+    "path": "^0.12.7",
     "stripe": "^18.2.1"
   },
   "devDependencies": {

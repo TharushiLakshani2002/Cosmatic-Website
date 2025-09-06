@@ -42,8 +42,11 @@ const shoppingItemSchema = new mongoose.Schema({
         wools: { type: Number, min: 0 },
         rubber: { type: Number, min: 0 },
         silik: { type: Number, min: 0 },
+        
+    },
+    isAvailable:{
         type: Boolean,
-        default: false
+        default: true
     },
     tags: [{
         type: String,

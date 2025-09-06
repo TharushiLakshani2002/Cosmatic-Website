@@ -152,16 +152,16 @@ const AdminOverview = () => {
                     <button
                         className="p-4 border border-gray-200 rounded-lg hover:border-[#0fb8a1] hover:bg-green-50 transition-colors">
                         <Package className="w-8 h-8 text-[#0fb8a1] mx-auto mb-2"/>
-                        <span className="text-sm font-medium">Add Menu Item</span>
+                        <span className="text-sm font-medium">Add Shopping Item</span>
                     </button>
                     <button
                         className="p-4 border border-gray-200 rounded-lg hover:border-[#0fb8a1] hover:bg-green-50 transition-colors">
-                        <Users className="w-8 h-8 text-brown-600 mx-auto mb-2"/>
+                        <Users className="w-8 h-8 text-[#0fb8a1] mx-auto mb-2"/>
                         <span className="text-sm font-medium">Add Staff</span>
                     </button>
                     <button
                         className="p-4 border border-gray-200 rounded-lg hover:border-[#0fb8a1] hover:bg-green-50 transition-colors">
-                        <TrendingUp className="w-8 h-8 text-brown-600 mx-auto mb-2"/>
+                        <TrendingUp className="w-8 h-8 text-[#0fb8a1] mx-auto mb-2"/>
                         <span className="text-sm font-medium">View Reports</span>
                     </button>
                     <button

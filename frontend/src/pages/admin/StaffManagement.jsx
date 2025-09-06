@@ -169,7 +169,7 @@ const StaffManagement = () => {
                         </select>
                         <button
                             onClick={handleSearch}
-                            className="px-6 py-2 bg-brown-600 text-white rounded-md hover:bg-[#0fb8a1] transition-colors"
+                            className="px-6 py-2 bg-[#0fb8a1] text-white rounded-md hover:bg-[#0fb8a1] transition-colors"
                         >
                             Search
                         </button>

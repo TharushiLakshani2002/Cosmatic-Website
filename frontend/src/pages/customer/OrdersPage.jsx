@@ -108,7 +108,7 @@ const OrdersPage = () => {
                         <Package className="w-16 h-16 text-gray-300 mx-auto mb-4"/>
                         <p className="text-gray-500 mb-4">You haven't placed any orders yet</p>
                         <Link
-                            to="/menu"
+                            to="/shopping"
                             className="inline-block px-6 py-3 bg-[#0fb8a1] text-white rounded-md hover:bg-[#0fb8a1]"
                         >
                             Browse Menu

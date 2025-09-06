@@ -37,7 +37,7 @@ const CartPage = () => {
     const [showCheckout, setShowCheckout] = useState(false);
 
     const totals = calculateTotals();
-    const deliveryFee = orderType === 'delivery' ? 5 : 0;
+    const deliveryFee = orderType === 'online' ? 5 : 0;
     const finalTotal = totals.total + deliveryFee - loyaltyPointsToUse;
     const loyaltyPointsEarned = Math.floor(finalTotal / 10); // 1 point for every $10 spent
 
@@ -53,7 +53,7 @@ const CartPage = () => {
             return;
         }
 
-        if (orderType === 'delivery') {
+        if (orderType === 'online') {
             const {street, city, state, zipCode, phone} = deliveryAddress;
             if (!street || !city || !state || !zipCode || !phone) {
                 toast.error('Please fill in complete delivery address');
@@ -66,7 +66,7 @@ const CartPage = () => {
         try {
             const orderData = {
                 items: items.map(item => ({
-                    menuItem: item.menuItem._id,
+                    menuItem: item.shoppingItem._id,
                     quantity: item.quantity,
                     customizations: item.customizations
                 })),
@@ -74,7 +74,7 @@ const CartPage = () => {
                 paymentMethod,
                 notes,
                 loyaltyPointsRedeemed: loyaltyPointsToUse,
-                ...(orderType === 'delivery' && {deliveryAddress})
+                ...(orderType === 'online' && {deliveryAddress})
             };
 
             const response = await orderService.createOrder(orderData);
@@ -98,10 +98,10 @@ const CartPage = () => {
                         <h2 className="text-2xl font-bold text-gray-900 mb-2">Your cart is empty</h2>
                         <p className="text-gray-600 mb-8">Add some delicious items from our menu!</p>
                         <Link
-                            to="/menu"
-                            className="inline-block px-6 py-3 bg-brown-600 text-white rounded-md hover:bg-[#0fb8a1] transition-colors"
+                            to="/shopping"
+                            className="inline-block px-6 py-3 bg-[#0fb8a1] text-white rounded-md hover:bggreen-600- transition-colors"
                         >
-                            Browse Menu
+                            Browse Items
                         </Link>
                     </div>
                 </div>
@@ -116,7 +116,7 @@ const CartPage = () => {
                     {/* Header */}
                     <div className="mb-8">
                         <Link
-                            to="/menu"
+                            to="/shopping"
                             className="inline-flex items-center gap-2 text-gray-600 hover:text-[#0fb8a1]mb-4"
                         >
                             <ArrowLeft className="w-5 h-5"/>
@@ -147,16 +147,16 @@ const CartPage = () => {
                                             <div key={item.id} className="p-6">
                                                 <div className="flex gap-4">
                                                     <img
-                                                        src={item.menuItem.image}
-                                                        alt={item.menuItem.name}
+                                                        src={item.shoppingItem.image}
+                                                        alt={item.shoppingItem.name}
                                                         className="w-24 h-24 object-cover rounded-lg"
                                                     />
                                                     <div className="flex-1">
                                                         <div className="flex justify-between">
                                                             <div>
-                                                                <h3 className="font-semibold text-lg">{item.menuItem.name}</h3>
+                                                                <h3 className="font-semibold text-lg">{item.shoppingItem.name}</h3>
                                                                 <p className="text-gray-600 text-sm mt-1">
-                                                                    {item.menuItem.category} •
+                                                                    {item.shoppingItem.category} •
                                                                     ${item.price.toFixed(2)} each
                                                                 </p>
                                                                 {item.customizations.length > 0 && (
@@ -378,7 +378,7 @@ const CartPage = () => {
                                     {items.map(item => (
                                         <div key={item.id} className="flex justify-between text-sm">
                                             <span className="text-gray-600">
-                                                {item.menuItem.name} x{item.quantity}
+                                                {item.shoppingItem.name} x{item.quantity}
                                             </span>
                                             <span className="font-medium">
                                                 ${(item.price * item.quantity).toFixed(2)}
@@ -460,7 +460,7 @@ const CartPage = () => {
                                                 {user ? 'Proceed to Checkout' : 'Login to Checkout'}
                                             </button>
                                             <Link
-                                                to="/menu"
+                                                to="/shopping"
                                                 className="block w-full py-3 text-center border border-gray-300 rounded-md font-medium hover:bg-gray-50 transition-colors"
                                             >
                                                 Continue Shopping

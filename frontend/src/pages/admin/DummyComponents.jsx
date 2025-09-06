@@ -14,7 +14,7 @@ export const StaffManagement = () => {
         <div className="bg-white rounded-lg shadow p-6">
             <div className="flex justify-between items-center mb-6">
                 <h3 className="text-lg font-semibold">Staff Management</h3>
-                <button className="px-4 py-2 bg-brown-600 text-white rounded-md hover:bg-brown-700 transition-colors">
+                <button className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-brown-700 transition-colors">
                     Add Staff Member
                 </button>
             </div>

@@ -4,6 +4,8 @@ import {Link, useNavigate} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
 import {useAuth} from '../../contexts/AuthContext';
 
+const API_URL = import.meta.env.VITE_API_URL || 'https://localhost:3001/api';
+
 const Register = () => {
     const navigate = useNavigate();
     const {register: registerUser} = useAuth();
@@ -33,7 +35,7 @@ const Register = () => {
     };
 
     const handleSocialLogin = (provider) => {
-        window.location.href = `http://localhost:3001/api/auth/${provider}`;
+        window.location.href = `${API_URL}/auth/${provider}`;
     };
 
     return (

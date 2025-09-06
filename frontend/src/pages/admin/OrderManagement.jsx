@@ -175,9 +175,14 @@ const OrderManagement = () => {
                             className="px-4 py-2 border rounded-md focus:ring-2 focus:ring-[#0fb8a1]"
                         >
                             <option value="">All Types</option>
-                            <option value="dine-in">Dine In</option>
-                            <option value="takeaway">Takeaway</option>
-                            <option value="delivery">Delivery</option>
+                            <option value="shirt">Shirts</option>
+  <option value="skirt">Skirts</option>
+  <option value="trouser">Trousers</option>
+  <option value="blouse">Blouses</option>
+  <option value="slippers">Slippers</option>
+  <option value="makeup">Makeup</option>
+  <option value="accessories">Accessories</option>
+  <option value="bags">Bags</option>
                         </select>
                     </div>
                 </div>

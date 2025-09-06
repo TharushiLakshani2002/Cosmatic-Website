@@ -98,16 +98,13 @@ SERVER_URL=https://localhost:3001
 
 # Database
 MONGODB_URI=mongodb+srv://TharushiLakshani:Tharushi2002@cluster0.amreb9q.mongodb.net/FashionHunt?retryWrites=true&w=majority&appName=Cluster0
-# JWT
-JWT_SECRET=This_is_a_very_long_secret_key_for_JWT_token
+
 
 # Google OAuth
 GOOGLE_CLIENT_ID=42100961943-mlc738687nru6tdcidbki4m2ocdquqh9.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=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
 
-# Facebook OAuth
-FB_CLIENT_ID=your_facebook_app_id
-FB_CLIENT_SECRET=your_facebook_app_secret
+
 
 # Auth0 OAuth
 AUTH0_DOMAIN=dev-l7301iel44kyc3d4.us.auth0.com

@@ -126,7 +126,7 @@ const HomePage = () => {
                                 <p className="text-xl md:text-2xl mb-8">{slide.subtitle}</p>
                                 <div className="space-x-4">
                                     <Link
-                                        to="/menu"
+                                        to="/shopping"
                                         className="inline-block px-8 py-3 bg-[#0fb8a1] text-white rounded-md hover:bg-green-600 transition-colors"
                                     >
                                         Order Now
@@ -195,7 +195,7 @@ const HomePage = () => {
                                     <div className="flex justify-between items-center">
                                         <span className="text-xl font-bold text-brown-600">{item.price}</span>
                                         <Link
-                                            to="/menu"
+                                            to="/shopping"
                                             className="text-sm text-green-600 hover:text-green-700 font-medium"
                                         >
                                             View Details →
@@ -207,7 +207,7 @@ const HomePage = () => {
                     </div>
                     <div className="text-center mt-12">
                         <Link
-                            to="/menu"
+                            to="/shopping"
                             className="inline-block px-8 py-3 bg-[#0fb8a1] text-white rounded-md hover:bg-green-700 transition-colors"
                         >
                             View Full items

@@ -1,5 +1,5 @@
 // Cosmetic Product Form - Admin Panel
-// Path: front-end/src/pages/admin/MenuForm.jsx
+
 
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 import { ArrowLeft, Plus, X, Save } from 'lucide-react';
 import menuService from '../../services/shoppingService';
 
-const MenuForm = () => {
+const ShoppingForm = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const isEdit = !!id;
@@ -59,21 +59,21 @@ const MenuForm = () => {
     const watchedImage = watch('image');
 
     useEffect(() => {
-        if (isEdit) fetchMenuItem();
+        if (isEdit) fetchShoppingItem();
     }, [id]);
 
     useEffect(() => {
         setImagePreview(watchedImage);
     }, [watchedImage]);
 
-    const fetchMenuItem = async () => {
+    const fetchShoppingItem = async () => {
         try {
-            const { data } = await menuService.getItem(id);
+            const { data } = await shoppingService.getItem(id);
             Object.keys(data).forEach((key) => setValue(key, data[key]));
             setImagePreview(data.image);
         } catch (error) {
             toast.error('Failed to load product');
-            navigate('/admin/menu');
+            navigate('/admin/shopping');
         }
     };
 
@@ -89,13 +89,13 @@ const MenuForm = () => {
             };
 
             if (isEdit) {
-                await menuService.updateItem(id, formData);
+                await shoppingService.updateItem(id, formData);
                 toast.success('Product updated successfully');
             } else {
-                await menuService.createItem(formData);
+                await shoppingService.createItem(formData);
                 toast.success('Product created successfully');
             }
-            navigate('/admin/menu');
+            navigate('/admin/shopping');
         } catch (error) {
             toast.error(error.response?.data?.message || 'Failed to save product');
         } finally {
@@ -105,7 +105,7 @@ const MenuForm = () => {
 
     return (
         <div className="bg-white rounded-lg shadow p-6">
-            <button onClick={() => navigate('/admin/menu')} className="flex items-center gap-2 text-gray-600 hover:text-brown-600 mb-6">
+            <button onClick={() => navigate('/admin/shopping')} className="flex items-center gap-2 text-gray-600 hover:text-brown-600 mb-6">
                 <ArrowLeft className="w-5 h-5" /> Back
             </button>
 
@@ -174,41 +174,13 @@ const MenuForm = () => {
                     </div>
                 </div>
 
-                <div>
-                    <h2 className="font-semibold">Key Ingredients</h2>
-                    {ingredientFields.map((field, index) => (
-                        <div key={field.id} className="flex gap-2 mt-2">
-                            <input {...register(`keyIngredients.${index}.value`)} className="input" placeholder="e.g. Hyaluronic Acid" />
-                            <button type="button" onClick={() => removeIngredient(index)} className="text-red-500"><X /></button>
-                        </div>
-                    ))}
-                    <button type="button" onClick={() => appendIngredient({ value: '' })} className="mt-2 text-brown-600 flex items-center gap-1"><Plus className="w-4 h-4" /> Add Ingredient</button>
-                </div>
+              
 
-                <div>
-                    <h2 className="font-semibold">Benefits</h2>
-                    {benefitFields.map((field, index) => (
-                        <div key={field.id} className="flex gap-2 mt-2">
-                            <input {...register(`benefits.${index}.value`)} className="input" placeholder="e.g. Hydrates skin" />
-                            <button type="button" onClick={() => removeBenefit(index)} className="text-red-500"><X /></button>
-                        </div>
-                    ))}
-                    <button type="button" onClick={() => appendBenefit({ value: '' })} className="mt-2 text-brown-600 flex items-center gap-1"><Plus className="w-4 h-4" /> Add Benefit</button>
-                </div>
-
-                <div>
-                    <h2 className="font-semibold">Tags</h2>
-                    {tagFields.map((field, index) => (
-                        <div key={field.id} className="flex gap-2 mt-2">
-                            <input {...register(`tags.${index}.value`)} className="input" placeholder="e.g. Vegan" />
-                            <button type="button" onClick={() => removeTag(index)} className="text-red-500"><X /></button>
-                        </div>
-                    ))}
-                    <button type="button" onClick={() => appendTag({ value: '' })} className="mt-2 text-brown-600 flex items-center gap-1"><Plus className="w-4 h-4" /> Add Tag</button>
-                </div>
+                
+                   
 
                 <div className="flex justify-end pt-6">
-                    <button type="submit" disabled={loading} className="bg-brown-600 text-white px-6 py-2 rounded-md flex items-center gap-2 hover:bg-brown-700 disabled:opacity-50">
+                    <button type="submit" disabled={loading} className="bg-green-600 text-white px-6 py-2 rounded-md flex items-center gap-2 hover:bg-green-700 disabled:opacity-50">
                         <Save className="w-4 h-4" /> {loading ? 'Saving...' : isEdit ? 'Update Product' : 'Create Product'}
                     </button>
                 </div>
@@ -217,4 +189,4 @@ const MenuForm = () => {
     );
 };
 
-export default MenuForm;
+export default ShoppingForm;

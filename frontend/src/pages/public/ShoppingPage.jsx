@@ -7,7 +7,7 @@ import menuService from '../../services/shoppingService';
 import toast from 'react-hot-toast';
 import {ShoppingCart, Edit2, Trash2, ToggleLeft, ToggleRight, Check} from 'lucide-react';
 
-const MenuPage = () => {
+const ShoppingPage = () => {
     const {user} = useAuth();
     const {addToCart, isInCart, getItemQuantity} = useCart();
     const navigate = useNavigate();
@@ -64,7 +64,7 @@ const MenuPage = () => {
                     ...cat,
                     id: cat.category,
                     name: defaultCat?.name || cat.category,
-                    icon: defaultCat?.icon || '🍽️'
+                    icon: defaultCat?.icon || '💇‍♀️'
                 };
             });
             setCategories(categoriesWithIcons);
@@ -87,7 +87,7 @@ const MenuPage = () => {
         // If item has required customizations, navigate to details page
         const hasRequiredCustomizations = item.customizations?.some(c => c.required);
         if (hasRequiredCustomizations) {
-            navigate(`/menu/${item._id}`);
+            navigate(`/shopping/${item._id}`);
             return;
         }
 
@@ -154,8 +154,8 @@ Formulated with premium ingredients for radiant, healthy beauty every day. </p>
                 {isAdmin && (
                     <div className="flex justify-end mb-6">
                         <Link
-                            to="/admin/menu/new"
-                            className="px-6 py-3 bg-brown-600 text-white rounded-md hover:bg-brown-700 transition-colors"
+                            to="/admin/shopping/new"
+                            className="px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
                         >
                             Add New Item
                         </Link>
@@ -167,7 +167,7 @@ Formulated with premium ingredients for radiant, healthy beauty every day. </p>
                     <div className="relative">
                         <input
                             type="text"
-                            placeholder="Search menu items..."
+                            placeholder="Search shopping items..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             className="w-full px-4 py-3 pl-12 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0fb8a1]"
@@ -186,7 +186,7 @@ Formulated with premium ingredients for radiant, healthy beauty every day. </p>
                         onClick={() => setSelectedCategory('all')}
                         className={`px-6 py-3 rounded-full font-medium transition-colors ${
                             selectedCategory === 'all'
-                                ? 'bg-brown-600 text-white'
+                                ? 'bg-green-600 text-white'
                                 : 'bg-white text-gray-700 hover:bg-gray-100 shadow-sm'
                         }`}
                     >
@@ -216,7 +216,7 @@ Formulated with premium ingredients for radiant, healthy beauty every day. </p>
                     </div>
                 ) : (
                     <>
-                        {/* Menu Grid */}
+                        {/* shopping Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                             {filteredItems.map(item => {
                                 const itemQuantity = getItemQuantity(item._id);
@@ -244,7 +244,7 @@ Formulated with premium ingredients for radiant, healthy beauty every day. </p>
                                                 {isAdmin && (
                                                     <>
                                                         <Link
-                                                            to={`/admin/menu/edit/${item._id}`}
+                                                            to={`/admin/shopping/edit/${item._id}`}
                                                             className="p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow"
                                                         >
                                                             <Edit2 className="w-4 h-4 text-[#0fb8a1]"/>
@@ -282,7 +282,7 @@ Formulated with premium ingredients for radiant, healthy beauty every day. </p>
                                             )}
                                         </div>
 
-                                        <Link to={`/menu/${item._id}`} className="block">
+                                        <Link to={`/shopping/${item._id}`} className="block">
                                             <div className="h-48 overflow-hidden">
                                                 <img
                                                     src={item.image}
@@ -294,7 +294,7 @@ Formulated with premium ingredients for radiant, healthy beauty every day. </p>
 
                                         <div className="p-6 flex flex-col flex-grow">
                                             <div className="flex justify-between items-start mb-2">
-                                                <Link to={`/menu/${item._id}`}>
+                                                <Link to={`/shopping/${item._id}`}>
                                                     <h3 className="text-xl font-semibold hover:text-[#0fb8a1] transition-colors">{item.name}</h3>
                                                 </Link>
                                                 <span
@@ -336,7 +336,7 @@ Formulated with premium ingredients for radiant, healthy beauty every day. </p>
                                                     item.isAvailable
                                                         ? isAdded
                                                             ? 'bg-green-600 text-white'
-                                                            : 'bg-brown-600 text-white hover:bg-[#0fb8a1]'
+                                                            : 'bg-[#0fb8a1] text-white hover:bg-[#0fb8a1]'
                                                         : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                                                 }`}
                                             >
@@ -423,4 +423,4 @@ Formulated with premium ingredients for radiant, healthy beauty every day. </p>
     );
 };
 
-export default MenuPage;
+export default ShoppingPage;

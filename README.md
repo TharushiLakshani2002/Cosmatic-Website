@@ -42,8 +42,8 @@ MongoDB (local or cloud, e.g., MongoDB Atlas)
 
 # Steps
 # Clone the repo
-git clone https://github.com/Raveesha-Amarawickrama/Cafe-Shop.git
-cd Cafe-Shop
+git clone (https://github.com/TharushiLakshani2002/Cosmatic-Website)
+cd cosmtic-website
 
 # Install dependencies
 cd BackEnd

@@ -34,7 +34,7 @@ Built with cutting-edge JavaScript technologies, **FashionHunt ensures scalabili
 
 ---
 
-## ⚙️ Setup & Installation
+##  Setup & Installation
 
 ###  Prerequisites
 
@@ -42,7 +42,7 @@ Built with cutting-edge JavaScript technologies, **FashionHunt ensures scalabili
 * npm
 * MongoDB (local or cloud e.g., MongoDB Atlas)
 
-### 🔧 Steps
+###  Steps
 
 ```bash
 # Clone the repository

@@ -29,7 +29,7 @@ const CartItem = ({item, onUpdateQuantity, onRemove, onEdit}) => {
                     <div className="flex justify-between items-start">
                         <div>
                             <Link
-                                to={`/menu/${item.shoppingItem._id}`}
+                                to={`/shopping/${item.shoppingItem._id}`}
                                 className="font-semibold text-lg hover:text-[#0fb8a1] transition-colors"
                             >
                                 {item.shoppingItem.name}

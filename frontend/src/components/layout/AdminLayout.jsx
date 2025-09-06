@@ -21,7 +21,7 @@ const AdminLayout = () => {
         {path: '/admin/shopping', name: 'Shopping Management', icon: Shirt},
         {path: '/admin/orders', name: 'Orders', icon: ShoppingCart},
         {path: '/admin/staff', name: 'Staff Management', icon: Users},
-        {path: '/admin/analytics', name: 'Analytics', icon: TrendingUp},
+
         {path: '/admin/promotions', name: 'Promotions', icon: Gift},
         {path: '/admin/stores', name: 'Store Management', icon: Store},
         {path: '/admin/settings', name: 'Settings', icon: Settings}
@@ -42,7 +42,7 @@ const AdminLayout = () => {
                                     className={({isActive}) =>
                                         `w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
                                             isActive
-                                                ? 'bg-brown-600 text-white'
+                                                ? 'bg-[#0fb8a1] text-white'
                                                 : 'text-gray-700 hover:bg-gray-100'
                                         }`
                                     }
@@ -80,7 +80,7 @@ const AdminLayout = () => {
                 {/* Main Content */}
                 <div className="flex-1 p-8">
                     <div className="mb-8">
-                        <h1 className="text-3xl font-bold text-gray-900">
+                        <h1 className="text-3xl font-bold text-green-900">
                             Welcome back, {user?.name.split(' ')[0]}!
                         </h1>
                         <p className="text-gray-600 mt-2">

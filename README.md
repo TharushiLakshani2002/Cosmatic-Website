@@ -133,6 +133,33 @@ CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
+5. Database Setup
+Option A: Local MongoDB
+
+# Install MongoDB locally and start the service
+mongod --dbpath /path/to/your/data/directory
+Option B: MongoDB Atlas (Recommended)
+
+Create account at MongoDB Atlas
+Create a new cluster
+Get connection string and update MONGODB_URI in backend .env
+6. OAuth Setup
+Google OAuth:
+
+Go to Google Cloud Console
+Create a new project or select existing
+Enable Google+ API
+Create OAuth 2.0 credentials
+Add authorized origins: https://localhost:5173
+Add authorized redirect URIs: https://localhost:3001/api/auth/google/callback
+Auth0 Setup:
+
+Create account at Auth0
+Create a new application (Regular Web Application)
+Configure callback URLs: https://localhost:3001/api/auth/auth0/callback
+Configure logout URLs: https://localhost:5173
+Copy Domain, Client ID, and Client Secret
+
 ##  Links
 
 *  **GitHub Repository**: [Cosmatic-Website](https://github.com/TharushiLakshani2002/Cosmatic-Website)

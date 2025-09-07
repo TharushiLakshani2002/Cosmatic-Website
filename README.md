@@ -15,6 +15,15 @@ Built with cutting-edge JavaScript technologies, **FashionHunt ensures scalabili
 ---
 
 ##  Features
+#Authentication & Security
+
+Email/Password Registration with verification
+Google OAuth Login
+Auth0 OIDC Integration
+JWT-based authentication
+Password reset functionality
+Remember Me sessions
+HTTPS/SSL support
 
 * **Product Browsing** – Customers can view collections and product details.
 * **User Authentication** – Secure login & registration with JWT (Auth0 + OIDC).
@@ -88,6 +97,12 @@ Example configuration:
 # API
 VITE_API_URL=https://localhost:3001/api
 
+# OAuth Configuration
+VITE_GOOGLE_CLIENT_ID=your_google_client_id
+
+VITE_AUTH0_DOMAIN=your_auth0_domain
+VITE_AUTH0_CLIENT_ID=your_auth0_client_id
+
 # Server
 PORT=3001
 NODE_ENV=development
@@ -96,20 +111,27 @@ NODE_ENV=development
 CLIENT_URL=https://localhost:5173
 SERVER_URL=https://localhost:3001
 
-# Database
-MONGODB_URI=mongodb+srv://TharushiLakshani:Tharushi2002@cluster0.amreb9q.mongodb.net/FashionHunt?retryWrites=true&w=majority&appName=Cluster0
+# For MongoDB Atlas:
+# MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/FashionHunt
 
+# JWT Configuration
+JWT_SECRET=your_super_secret_jwt_key_minimum_32_characters_long
+JWT_EXPIRE=7d
+SESSION_SECRET=your_session_secret_key_here
 
-# Google OAuth
-GOOGLE_CLIENT_ID=42100961943-mlc738687nru6tdcidbki4m2ocdquqh9.apps.googleusercontent.com
-GOOGLE_CLIENT_SECRET=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
+# Google OAuth Credentials
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
 
+# Auth0 Credentials
+AUTH0_CLIENT_ID=your_auth0_client_id
+AUTH0_CLIENT_SECRET=your_auth0_client_secret
+AUTH0_DOMAIN=your_auth0_domain
 
-
-# Auth0 OAuth
-AUTH0_DOMAIN=dev-l7301iel44kyc3d4.us.auth0.com
-AUTH0_CLIENT_ID=R1MWAi1OB5ZVfabzDovzlYuWNhYkfWcA
-AUTH0_CLIENT_SECRET=31NxjxGmBLYQ4_Jr-sj-jaFsg5WdYoYeX-nsOZxTtExo_gygAowk2_TokLmHdxgP
+# File Upload (Cloudinary)
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
 ##  Links
 
